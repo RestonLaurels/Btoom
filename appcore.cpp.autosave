@@ -28,7 +28,7 @@ void AppCore::rezet_count_FromQml(){
     value = 0; //полное число
     count = 0; //сброс числа
     lever = 0; //сброс десятичности числа
-    oper = -1;
+    oper = -1; //сброс информации о пред.операции
     counterlevel = 1;
     QString str = QString::number(count);
     emit sendToQml(str);
@@ -58,11 +58,11 @@ void AppCore::operation_FromQml(int operation){
             value=value+count;
             break;
         }
-        case 0:{
+        case 0:{// =
             value=value;
             break;
         }
-        default :
+        default ://абсолютно новое число
             value=count;
 
             break;

@@ -8,22 +8,24 @@ class AppCore : public QObject
     Q_OBJECT
 public:
     explicit AppCore(QObject *parent = 0);
-    int lever;
+    int lever;//рычаг для понимания
     double counterlevel;
     double value;
     int oper;
-    double greatvalue;
+
 
 signals:
-    // Сигнал для передачи данных в qml-интерфейс
-    void sendToQml(double count);
+    /* Сигнал для передачи данных в qml-интерфейс
+    *
+    */
+    void sendToQml(QString count);
 
 public slots:
     // Слот для приёма данных из qml-интерфейса
     void receive_count_FromQml(double val);
     void rezet_count_FromQml();
     void decimal_count_FromQml();
-    void operation_FromQml(char operation);
+    void operation_FromQml(int operation);
 
 private:
     double count;  // Счетчик, которым будем оперировать
